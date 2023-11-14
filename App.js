@@ -4,13 +4,13 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 
 export default function App() {
   const [peso, setPeso] = useState('');
-  const [alturaCm, setAlturaCm] = useState('');
+  const [alturaM, setAlturaM] = useState('');
   const [imc, setIMC] = useState(null);
   const [resultado, setResultado] = useState('');
 
   const calcularIMC = () => {
     const pesoFloat = parseFloat(peso);
-    const alturaMetros = parseFloat(alturaCm) / 100;
+    const alturaMetros = parseFloat(alturaM);
 
     if (isNaN(pesoFloat) || isNaN(alturaMetros) || alturaMetros === 0) {
       alert('Por favor, ingrese valores válidos para peso y altura.');
@@ -46,10 +46,10 @@ export default function App() {
 
         <TextInput
           style={styles.input}
-          placeholder="Altura (cm)"
+          placeholder="Altura (m)"
           keyboardType="numeric"
-          value={alturaCm}
-          onChangeText={(text) => setAlturaCm(text)}
+          value={alturaM}
+          onChangeText={(text) => setAlturaM(text)}
         />
 
         <TouchableOpacity style={styles.button} onPress={calcularIMC}>
